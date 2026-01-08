@@ -59,3 +59,13 @@ class NoiseSetting(enum.Enum):
 def add_technical_noise(
     expr: npt.NDArray, setting: NoiseSetting, seed: int
 ) -> npt.NDArray: ...
+
+def add_technical_noise_custom(
+    expr: npt.NDArray,
+    outlier_mu: float,
+    library_mu: float,
+    library_sigma: float,
+    dropout_k: float,
+    dropout_q: float,
+    seed: int,
+) -> npt.NDArray: ...
