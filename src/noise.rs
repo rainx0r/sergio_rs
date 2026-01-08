@@ -152,6 +152,31 @@ pub fn add_technical_noise(
 }
 
 #[pyfunction]
+#[pyo3(name = "add_technical_noise_custom")]
+pub fn py_add_technical_noise_custom<'py>(
+    py: Python<'py>,
+    expr: PyReadonlyArray2<f64>,
+    outlier_mu: f64,
+    library_mu: f64,
+    library_sigma: f64,
+    dropout_k: f64,
+    dropout_q: f64,
+    seed: u64,
+) -> Bound<'py, PyArray2<f64>> {
+    let rust_array = expr.as_array();
+    let noisy_data = add_technical_noise_custom(
+        &rust_array,
+        outlier_mu,
+        library_mu,
+        library_sigma,
+        dropout_k,
+        N64::new(dropout_q),
+        seed,
+    );
+    noisy_data.to_pyarray_bound(py)
+}
+
+#[pyfunction]
 #[pyo3(name = "add_technical_noise")]
 pub fn py_add_technical_noise<'py>(
     py: Python<'py>,

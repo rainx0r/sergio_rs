@@ -15,6 +15,7 @@ fn sergio_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<mrs::MrProfile>()?;
     m.add_class::<sim::Sim>()?;
     m.add_wrapped(wrap_pyfunction!(noise::py_add_technical_noise))?;
+    m.add_wrapped(wrap_pyfunction!(noise::py_add_technical_noise_custom))?;
     m.add_class::<noise::NoiseSetting>()?;
     Ok(())
 }
