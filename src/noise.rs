@@ -173,7 +173,7 @@ pub fn py_add_technical_noise_custom<'py>(
         N64::new(dropout_q),
         seed,
     );
-    noisy_data.to_pyarray_bound(py)
+    noisy_data.to_pyarray(py)
 }
 
 #[pyfunction]
@@ -186,7 +186,7 @@ pub fn py_add_technical_noise<'py>(
 ) -> Bound<'py, PyArray2<f64>> {
     let rust_array = expr.as_array();
     let noisy_data = add_technical_noise(&rust_array, setting, seed);
-    noisy_data.to_pyarray_bound(py)
+    noisy_data.to_pyarray(py)
 }
 
 #[cfg(test)]

@@ -4,7 +4,7 @@ use ndarray_rand::{
     rand_distr::{Distribution, Normal, Uniform},
     RandomExt,
 };
-use polars::{frame::DataFrame, prelude::NamedFrom, series::Series};
+use polars::prelude::{Column, DataFrame};
 use pyo3::{pyclass, pymethods};
 use pyo3_polars::PyDataFrame;
 use rand_pcg::Lcg128Xsl64;
@@ -158,12 +158,12 @@ impl Sim {
             gene_exprs,
         )
         .unwrap();
-        let mut df_cols: Vec<Series> = vec![Series::new("Genes", gene_names)];
+        let mut df_cols: Vec<Column> = vec![Column::new("Genes".into(), gene_names)];
         df_cols.extend(
             gene_exprs
                 .axis_iter(Axis(1))
                 .zip(cell_names)
-                .map(|(col, cell_name)| Series::new(&cell_name, col.to_vec())),
+                .map(|(col, cell_name)| Column::new(cell_name.into(), col.to_vec())),
         );
         DataFrame::new(df_cols).expect("dataframe generation shouldn't error")
     }

@@ -65,7 +65,7 @@ impl Gene {
         return x;
     }
 
-    pub fn get_last_conc(&self) -> ArrayView1<f64> {
+    pub fn get_last_conc(&self) -> ArrayView1<'_, f64> {
         self.sim_conc
             .as_ref()
             .unwrap()
