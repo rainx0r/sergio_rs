@@ -15,7 +15,7 @@ classifiers = [
     "Programming Language :: Rust",
 ]
 dynamic = ["version"]
-dependencies = ["polars>=11.361", "numpy>=2.4.0"]
+dependencies = ["polars>=1.36.1", "numpy>=2.4.0"]
 
 [tool.maturin]
 features = ["extension-module"]
