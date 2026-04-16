@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Chatzaroulas"
+    given-names: "Evangelos"
+    orcid: https://orcid.org/0000-0001-6815-985X
+title: "sergio_rs: The SERGIO v2 simulator rewritten in Rust"
+version: 0.2.2
+date-released: 2024-04-16
+url: "https://github.com/rainx0r/sergio_rs"

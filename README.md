@@ -125,3 +125,32 @@ perturbed_sim = sergio_rs.Sim(
 )
 perturbed_data = sim.simulate(perturbed_mr_profile)
 ```
+
+## Citing the project
+There's no publication associated with this project, so you can cite it using the GitHub "Cite this repository" button, or you can use the following BibTeX citations
+
+### This software
+```bibtex
+@software{sergio_rs_2024,
+  author = {Chatzaroulas, Evangelos},
+  month = {4},
+  title = {{sergio_rs: The SERGIO v2 simulator rewritten in Rust}},
+  url = {https://github.com/rainx0r/sergio_rs},
+  version = {0.2.2},
+  year = {2024}
+}
+```
+
+### Original SERGIO simulator
+```bibtex
+@article{dibaeinia2020sergio,
+  title={SERGIO: a single-cell expression simulator guided by gene regulatory networks},
+  author={Dibaeinia, Payam and Sinha, Saurabh},
+  journal={Cell systems},
+  volume={11},
+  number={3},
+  pages={252--271},
+  year={2020},
+  publisher={Elsevier}
+}
+```
