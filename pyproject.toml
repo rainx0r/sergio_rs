@@ -21,7 +21,6 @@ dependencies = ["polars>=1.36.1", "numpy>=2.4.0"]
 features = ["extension-module"]
 
 [tool.maturin.generate-ci.github]
-args = "--locked"
 pytest = false
 trusted-publishing = false
 
