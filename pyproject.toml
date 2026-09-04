@@ -19,3 +19,36 @@ dependencies = ["polars>=1.36.1", "numpy>=2.4.0"]
 
 [tool.maturin]
 features = ["extension-module"]
+
+[tool.maturin.generate-ci.github]
+args = "--locked"
+pytest = false
+trusted-publishing = false
+
+[tool.maturin.generate-ci.github.linux]
+runner = "ubuntu-24.04"
+manylinux = "2_28"
+targets = ["x86_64", "aarch64"]
+rust-toolchain = "1.98.1"
+
+[tool.maturin.generate-ci.github.windows]
+rust-toolchain = "1.98.1"
+
+[[tool.maturin.generate-ci.github.windows.target]]
+arch = "x64"
+runner = "windows-2025"
+
+[[tool.maturin.generate-ci.github.windows.target]]
+arch = "aarch64"
+runner = "windows-11-arm"
+
+[tool.maturin.generate-ci.github.macos]
+rust-toolchain = "1.98.1"
+
+[[tool.maturin.generate-ci.github.macos.target]]
+arch = "x86_64"
+runner = "macos-15-intel"
+
+[[tool.maturin.generate-ci.github.macos.target]]
+arch = "aarch64"
+runner = "macos-26"
